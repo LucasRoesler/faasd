@@ -171,12 +171,16 @@
   version = "v0.7.1"
 
 [[projects]]
-  digest = "1:bcf36df8d43860bfde913d008301aef27c6e9a303582118a837c4a34c0d18167"
+  digest = "1:2671e7426ffdd5261618ed67f071eb682af99b4fd938a4a9b0b257136d60bf5e"
   name = "github.com/coreos/go-systemd"
-  packages = ["journal"]
+  packages = [
+    "internal/dlopen",
+    "journal",
+    "sdjournal",
+  ]
   pruneopts = "UT"
-  revision = "2d78030078ef61b3cae27f42ad6d0e46db51b339"
-  version = "v22.0.0"
+  revision = "d3cd4ed1dbcf5835feba465b180436db54f20228"
+  version = "v21"
 
 [[projects]]
   digest = "1:92ebc9c068ab8e3fff03a58694ee33830964f6febd0130069aadce328802de14"
@@ -361,12 +365,13 @@
   version = "0.18.10"
 
 [[projects]]
-  digest = "1:6f21508bd38feec0d440ca862f5adcb4c955713f3eb4e075b9af731e6ef258ba"
+  digest = "1:7a20be0bdfb2c05a4a7b955cb71645fe2983aa3c0bbae10d6bba3e2dd26ddd0d"
   name = "github.com/openfaas/faas-provider"
   packages = [
     ".",
     "auth",
     "httputil",
+    "logs",
     "proxy",
     "types",
   ]
@@ -586,6 +591,7 @@
     "github.com/containerd/containerd/runtime/v2/logging",
     "github.com/containerd/go-cni",
     "github.com/coreos/go-systemd/journal",
+    "github.com/coreos/go-systemd/sdjournal",
     "github.com/docker/cli/cli/config",
     "github.com/docker/cli/cli/config/configfile",
     "github.com/docker/distribution/reference",
@@ -593,6 +599,7 @@
     "github.com/morikuni/aec",
     "github.com/opencontainers/runtime-spec/specs-go",
     "github.com/openfaas/faas-provider",
+    "github.com/openfaas/faas-provider/logs",
     "github.com/openfaas/faas-provider/proxy",
     "github.com/openfaas/faas-provider/types",
     "github.com/openfaas/faas/gateway/requests",

@@ -8,6 +8,7 @@ addons:
   apt:
     packages:
       - runc
+      - libsystemd-dev
 
 script:
 - make dist

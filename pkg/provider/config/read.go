@@ -9,6 +9,8 @@ import (
 type ProviderConfig struct {
 	// Sock is the address of the containerd socket
 	Sock string
+	// JournalDirectory
+	JournalDirectory string
 }
 
 // ReadFromEnv loads the FaaSConfig and the Containerd specific config form the env variables
@@ -28,7 +30,8 @@ func ReadFromEnv(hasEnv types.HasEnv) (*types.FaaSConfig, *ProviderConfig, error
 	config.TCPPort = &port
 
 	providerConfig := &ProviderConfig{
-		Sock: types.ParseString(hasEnv.Getenv("sock"), "/run/containerd/containerd.sock"),
+		Sock:             types.ParseString(hasEnv.Getenv("sock"), "/run/containerd/containerd.sock"),
+		JournalDirectory: types.ParseString(hasEnv.Getenv("journal_directory"), "/var/log/journal"),
 	}
 
 	return config, providerConfig, nil
