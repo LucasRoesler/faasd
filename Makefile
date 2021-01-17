@@ -18,7 +18,7 @@ local:
 
 .PHONY: test
 test:
-	CGO_ENABLED=0 GOOS=linux go test -mod=vendor -ldflags $(LDFLAGS) ./...
+	CGO_ENABLED=0 GOOS=linux go test -mod=vendor -ldflags $(LDFLAGS) ./cmd/... ./pkg/...
 
 .PHONY: dist
 dist:
@@ -64,4 +64,5 @@ test-e2e:
 	sleep 3
 	journalctl -t openfaas-fn:figlet --no-pager
 	/usr/local/bin/faas-cli logs figlet --since 15m --follow=false
-	/usr/local/bin/faas-cli logs figlet --since 15m --follow=false | grep Forking
+	go test ./test
+	# /usr/local/bin/faas-cli logs figlet --since 15m --follow=false | grep Forking
